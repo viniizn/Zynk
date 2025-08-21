@@ -1,0 +1,15 @@
+{
+    "build": {
+      "buildCommand": "composer install && npm install && npm run build",
+      "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT"
+    },
+    "deploy": {
+      "restart": true
+    },
+    "variables": {
+      "APP_ENV": "production",
+      "APP_DEBUG": "false",
+      "APP_URL": "https://blogs-study-production-ca16.up.railway.app/"
+    }
+  }
+  

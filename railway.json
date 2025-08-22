@@ -9,7 +9,7 @@
     "variables": {
       "APP_ENV": "production",
       "APP_DEBUG": "false",
-      "APP_URL": "https://https://zynk-production.up.railway.app//"
+      "APP_URL": "https://zynk-production.up.railway.app"
     }
   }
   

@@ -47,7 +47,7 @@
                     </a>
                     
                     <!-- Conteúdo do post -->
-                    <x-posts :post="$post" />
+                    <x-posts :post="$post" :noLineClamp="true" />
 
             <div class="mt-10">
                 <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center">

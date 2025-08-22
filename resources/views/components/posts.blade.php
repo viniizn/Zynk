@@ -12,7 +12,8 @@
     <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">{{ $post->title }}</h3>
 
     <p class="text-sm sm:text-base text-gray-700 dark:text-gray-100 leading-relaxed whitespace-pre-wrap 
-       break-all sm:break-words max-w-full sm:max-w-[500px] mt-2 mb-5 line-clamp-2">{{ $post->description }}</p>
+       break-all sm:break-words max-w-full sm:max-w-[500px] mt-2 mb-5 
+        {{ $noLineClamp ? '' : 'line-clamp-2' }}">{{ $post->description }}</p>
 
         @if (!empty($post->img_path))
             <img src="{{ asset('storage/' . $post->img_path) }}"

@@ -66,6 +66,9 @@ cp .env.example .env
 # Gere a chave da aplicação
 php artisan key:generate
 
+# Criar pasta onde serão salvos arquivos dos usuários
+php artisan storage:link
+
 # Ajuste os dados do .env para o seu ambiente (DB, mail, etc.)
 
 # Rode as migrations (se tiver)

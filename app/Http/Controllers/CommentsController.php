@@ -87,28 +87,23 @@ class CommentsController extends Controller
         if ($comment) {
             $postId = $comment->post_id;
     
-            // Se houver imagem, apaga do disco
             if ($comment->img_path && Storage::disk('public')->exists($comment->img_path)) {
                 Storage::disk('public')->delete($comment->img_path);
             }
-            // Se houver imagem, apaga do disco
             if ($comment->video_path && Storage::disk('public')->exists($comment->video_path)) {
                 Storage::disk('public')->delete($comment->video_path);
             }
-            // Se houver imagem, apaga do disco
             if ($comment->doc_path && Storage::disk('public')->exists($comment->doc_path)) {
                 Storage::disk('public')->delete($comment->doc_path);
             }
             $comment->likes()->delete();
     
-            // Apaga o comentário do banco
             $comment->delete();
 
     
             return redirect()->route("comments", ['postId' => $postId]);
         }
     
-        // Se comentário não encontrado, redireciona para uma rota segura, por exemplo:
     }
 
     public function toggleLike(Request $request)

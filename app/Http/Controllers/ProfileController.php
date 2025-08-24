@@ -32,7 +32,7 @@ class ProfileController extends Controller
 
         // Filtrando os posts para mostrar apenas os do usuário logado
         $posts = PostModel::with("user")
-        ->where('user_id', $user->id) // Filtra os posts pelo ID do usuário
+        ->where('user_id', $user->id)
         ->orderBy("created_at", "desc")
         ->get();
 
@@ -44,12 +44,11 @@ class ProfileController extends Controller
 
     public function author_profile($id)
     {
-        // Pegando o usuário logado
         $user = \App\Models\User::findOrFail($id);
 
         // Filtrando os posts para mostrar apenas os do usuário logado
         $posts = PostModel::with("user")
-        ->where('user_id', $user->id) // Filtra os posts pelo ID do usuário
+        ->where('user_id', $user->id)
         ->orderBy("created_at", "desc")
         ->get();
 
@@ -77,8 +76,7 @@ class ProfileController extends Controller
             }
 
             $file = $request->file('profile_photo');
-            // Salva no storage/app/public/posts (crie esta pasta ou ajuste conforme desejar)
-            $path = $file->store('user', 'public'); // 'public' refere-se ao disco storage/app/public
+            $path = $file->store('user', 'public');
             $request->user()->profile_photo = $path; // salva só o caminho relativo (ex: posts/arquivo.jpg)
         }
 
@@ -89,11 +87,11 @@ class ProfileController extends Controller
 
     public function update_back(Request $request)
     {
-        $user = auth()->user(); // Obtém o usuário autenticado
+        $user = auth()->user();
 
         // Validação para garantir que o arquivo seja uma imagem
         $request->validate([
-            'cover_photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // Apenas imagens com limite de 2MB
+            'cover_photo' => 'nullable|image|mimes:jpg,jpeg,png|max:10240',
         ]);
 
         // Se uma nova foto de capa for enviada
@@ -103,14 +101,11 @@ class ProfileController extends Controller
                 Storage::delete('public/' . $user->cover_photo);
             }
 
-            // Salva o novo arquivo de imagem na pasta 'profile_covers'
             $path = $request->file('cover_photo')->store('profile_covers', 'public');
             
-            // Atualiza o caminho da imagem no banco de dados
             $user->cover_photo = $path;
             $request->user()->save();
             
-            // Retorna a URL da nova imagem
             return response()->json([
                 'success' => true,
                 'new_cover_url' => asset('storage/' . $path)

@@ -575,11 +575,9 @@
 
 
             function limparPreview() {
-                // Limpa o conteúdo visual
                 previewMedia.innerHTML = '';
                 previewMedia.classList.add('hidden');
 
-                // Limpa o input de arquivo (reseta)
                 inputMedia.value = '';
                 inputDoc.value = "";
             }
@@ -595,7 +593,6 @@
                 const fileType = file.type;
 
                 if (fileType.startsWith('image/')) {
-                    // Preview imagem
                     const reader = new FileReader();
                     reader.onload = function(e) {
                         previewMedia.innerHTML =
@@ -605,7 +602,6 @@
                     reader.readAsDataURL(file);
                 } 
                 else if (fileType.startsWith('video/')) {
-                    // Preview vídeo
                     const videoURL = URL.createObjectURL(file);
                     previewMedia.innerHTML = `
                     <video controls class="max-h-48 rounded-lg">
@@ -634,10 +630,8 @@
                     e.preventDefault();
                     modal_delete.classList.remove('hidden');
 
-                    // Pegue os dados do post
                     const commentId = button.dataset.id;
 
-                    // Opcional: mostrar título no modal ou preencher o form dinamicamente
                     const form = document.getElementById('delete_form_comment');
 
                     form.action = `{{ url('delete_comment_submit') }}/${commentId}`;
@@ -682,7 +676,6 @@
         const hash = sessionStorage.getItem('scrollToCommentHash');
 
         if (hash && hash.startsWith("#comment-")) {
-            // Remove o item para não repetir em outros carregamentos
             sessionStorage.removeItem('scrollToCommentHash');
 
             // Primeiro rola pro topo
@@ -711,7 +704,7 @@
 
                 const checkExist = setInterval(tryScroll, 100);
                 setTimeout(() => clearInterval(checkExist), 3000);
-            }, 300); // Pequeno delay para evitar conflitos com carregamento
+            }, 300);
         }
     });
 </script>
@@ -732,7 +725,6 @@
                 e.preventDefault();
                 modal_delete2.classList.remove('hidden');
 
-                // Pegue os dados do post
                 const postId2 = button.dataset.id;
 
                 // Preenche a ação do formulário
@@ -741,7 +733,6 @@
             });
         });
 
-        // Fecha modal ao clicar no botão "Cancelar"
         button_cancel2.addEventListener('click', () => {
             modal_delete2.classList.add('hidden');
         });
@@ -754,13 +745,11 @@
         modal_delete2.addEventListener("mouseup", (e) => {
             if (!click_delete && e.target === modal_delete2) {
                 modal_delete2.classList.add("hidden");
-                limparPreview(); // Se essa função não existir, comente ou remova
+                limparPreview();
             }
         });
 
-        // Defina essa função se precisar
         function limparPreview() {
-            // Por exemplo: limpar algum preview visual dentro do modal
             console.log("Preview limpo.");
         }
     });

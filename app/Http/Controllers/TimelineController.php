@@ -94,25 +94,21 @@ class TimelineController extends Controller
     }
 
     public function delete_post_submit($id) {
-    $post = PostModel::find($id);
+        $post = PostModel::find($id);
 
-    if ($post) {
-        // Se houver imagem, apaga do disco
-        if ($post->img_path && Storage::disk('public')->exists($post->img_path)) {
-            Storage::disk('public')->delete($post->img_path);
-        }
-        // Se houver imagem, apaga do disco
-        if ($post->video_path && Storage::disk('public')->exists($post->video_path)) {
-            Storage::disk('public')->delete($post->video_path);
-        }
-        // Se houver imagem, apaga do disco
-        if ($post->doc_path && Storage::disk('public')->exists($post->doc_path)) {
-            Storage::disk('public')->delete($post->doc_path);
-        }
+        if ($post) {
+            if ($post->img_path && Storage::disk('public')->exists($post->img_path)) {
+                Storage::disk('public')->delete($post->img_path);
+            }
+            if ($post->video_path && Storage::disk('public')->exists($post->video_path)) {
+                Storage::disk('public')->delete($post->video_path);
+            }
+            if ($post->doc_path && Storage::disk('public')->exists($post->doc_path)) {
+                Storage::disk('public')->delete($post->doc_path);
+            }
 
-        // Apaga o post do banco
-        $post->delete();
-    }
+            $post->delete();
+        }
 
         return redirect()->route("dashboard");
     }

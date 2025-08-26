@@ -49,7 +49,7 @@ Se quiser rodar o projeto localmente, é necessário:
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/zynk.git
+git clone https://github.com/viniizn/Zynk.git
 
 # Acesse a pasta do projeto
 cd zynk
@@ -66,7 +66,7 @@ cp .env.example .env
 # Gere a chave da aplicação
 php artisan key:generate
 
-# Criar pasta onde serão salvos arquivos dos usuários
+# Crie a pasta onde serão salvos arquivos dos usuários
 php artisan storage:link
 
 # Ajuste os dados do .env para o seu ambiente (DB, mail, etc.)
@@ -105,7 +105,7 @@ Este é um projeto pessoal, mas se quiser contribuir com melhorias ou sugestões
 ## 📫 Contato
 Você pode falar comigo por:  
 📧 **jovini1303@gmail.com**  
-🔗 **LinkedIn**  
+🔗 **www.linkedin.com/in/joão-vinicios-465936290**  
 
 ---
 

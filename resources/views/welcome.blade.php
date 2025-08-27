@@ -209,7 +209,7 @@
 
         <!-- Formulário e botões abaixo do título -->
         <div class="form-section">
-            <div class="flip-buttons mb-6">
+            <div class="flip-buttons mb-6 mt-4">
 
                 <button onclick="showForm('register')"
                     class="px-6 py-2 text-white border-2 border-white rounded-full hover:bg-white hover:text-blue-600 transition">{{ __('texts.register') }}</button>

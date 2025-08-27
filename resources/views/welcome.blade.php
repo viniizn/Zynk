@@ -49,13 +49,13 @@
             }
         }
 
-        /* ✅ Área real com conteúdo que pode scrollar */
         .wrapper {
-            height: 100vh;
+            height: 100dvh; /* mais confiável no iOS */
             overflow-y: auto;
             position: relative;
             z-index: 1;
         }
+
 
         /* ⚙️ As bolas animadas */
         #bgCanvas {
@@ -103,25 +103,22 @@
         }
 
         .centered-title {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 15vh;
+            padding-bottom: 2rem;
         }
 
 
+
         .form-section {
-            margin-top: 320px;
-            /* Distance from top, to place it under the title */
             display: flex;
             flex-direction: column;
             align-items: center;
+
         }
 
         .flip-container {
@@ -206,11 +203,9 @@
             <p class="text-lg opacity-80 mt-4">{{ __('texts.text') }}</p>
         </div>
 
-
         <!-- Formulário e botões abaixo do título -->
         <div class="form-section">
-            <div class="flip-buttons mb-6 mt-4">
-
+            <div class="flip-buttons mb-6">
                 <button onclick="showForm('register')"
                     class="px-6 py-2 text-white border-2 border-white rounded-full hover:bg-white hover:text-blue-600 transition">{{ __('texts.register') }}</button>
                 <button onclick="showForm('login')"

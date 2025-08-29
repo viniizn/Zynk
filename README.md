@@ -4,6 +4,14 @@ Este projeto foi desenvolvido como parte do meu portfólio para demonstrar habil
 
 ---
 
+## Site hospedado
+
+[https://zynk-production.up.railway.app/]
+
+Por ser o plano gratuito do railway, algumas coisas podem não funcionar, como enviar videos e arquivos pesados.
+
+---
+
 ## 🎥 Vídeo
 
 [Assista ao vídeo no YouTube](https://youtu.be/c7LA3PCb8SI)

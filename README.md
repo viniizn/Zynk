@@ -6,6 +6,8 @@ Este projeto foi desenvolvido como parte do meu portfólio para demonstrar habil
 
 ## 🎥 Vídeo
 
+[Assista ao vídeo no YouTube](https://youtu.be/c7LA3PCb8SI)
+
 ---
 
 ## ✨ Sobre o projeto
